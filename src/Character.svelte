@@ -7,7 +7,8 @@
     export let x;
     export let y;
 
-    const rotate = `rotate(${directionOfAngle(orientation)}, ${x}, ${y})`
+    $: rotate = `rotate(${directionOfAngle(orientation)}, ${x}, ${y})`;
+    $: translate = `translate(${x}, ${y})`;
 </script>
 
 <style>
@@ -15,13 +16,12 @@
         stroke: black;
         stroke-width: 2px;
     }
-
     .eye {
         fill: black;
     }
 </style>
 
-<g transform={rotate}>
-    <circle class="character" r={size} cx={x} cy={y} fill={colour} />
-    <circle class="eye" r={size / 4} cx={x} cy={y - size} />
+<g transform="{rotate} {translate}" >
+    <circle class="character" r={size} fill={colour} />
+    <circle class="eye" r={size / 4} cy={size} />
 </g>

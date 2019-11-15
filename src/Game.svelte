@@ -9,8 +9,6 @@
 	window.addEventListener("resize", () => {
 		middle.x = window.innerWidth / 2;
 		middle.y = window.innerHeight / 2;
-
-		console.log(middle)
 	});
 </script>
 
