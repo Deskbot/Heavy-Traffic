@@ -34,7 +34,6 @@
     }
 
     window.addEventListener("keydown", (e) => {
-        console.log(currentCharacter)
         const eventMap = {
             w: up(),
             a: left(),
@@ -42,7 +41,10 @@
             d: right(),
         }
 
-        eventMap[e.key]();
+        const whatToDo = eventMap[e.key]
+        if (whatToDo) {
+            whatToDo();
+        }
     });
 </script>
 
