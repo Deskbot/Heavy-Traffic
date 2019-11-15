@@ -42,4 +42,8 @@
     {/each}
 {/each}
 
-<Characters startX={startCell[0] + levelTopLeftX + size / 2} startY={startCell[1] + levelTopLeftY + size / 2}/>
+<Characters
+    spacing={size}
+    startX={startCell[0] + levelTopLeftX + size / 2}
+    startY={startCell[1] + levelTopLeftY + size / 2}
+/>

@@ -2,26 +2,39 @@
     import Human from "./Human.svelte";
     import Legion from "./Legion.svelte";
 
+    export let spacing;
     export let startX;
     export let startY;
 
-    function up() {
+    const human = {
+        x: startX,
+        y: startY,
+    };
+    const legion = {
+        x: startX,
+        y: startY,
+    };
 
+    let currentCharacter = human;
+
+    function up() {
+        currentCharacter.x -= spacing;
     }
 
     function left() {
-
+        currentCharacter.y -= spacing;
     }
 
     function right() {
-
+        currentCharacter.x += spacing;
     }
 
     function down() {
-
+        currentCharacter.y += spacing;
     }
 
     window.addEventListener("keydown", (e) => {
+        console.log(currentCharacter)
         const eventMap = {
             w: up(),
             a: left(),
@@ -34,10 +47,10 @@
 </script>
 
 <Legion
-    x={startX}
-    y={startY}
+    bind:x={legion.x}
+    bind:y={legion.y}
 />
 <Human
-    x={startX}
-    y={startY}
+    bind:x={human.x}
+    bind:y={human.y}
 />
