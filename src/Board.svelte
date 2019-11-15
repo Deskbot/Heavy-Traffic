@@ -1,14 +1,19 @@
 <script>
+    import Human from "./Human.svelte";
+    import Legion from "./Legion.svelte";
     import { arrEquals, intsUpTo } from "./util.js";
 
     export let rows;
     export let cols;
     export let offset;
     export let cellsToClear;
+    export let startCell;
 
     const size = 150;
     const boardWidth = size * cols;
     const boardHeight = size * rows;
+    const boardTopLeftX = offset.x - boardHeight / 2;
+    const boardTopLeftY = offset.y - boardWidth / 2;
 
     const rowsArr = intsUpTo(rows);
     const colsArr = intsUpTo(cols);
@@ -32,8 +37,17 @@
             class:toClear={cellsToClear.some(cell => arrEquals(cell, [rowNum, colNum]))}
             width={size}
             height={size}
-            x={colNum * size + offset.x - boardHeight / 2}
-            y={rowNum * size + offset.y - boardWidth / 2}
+            x={colNum * size + boardTopLeftX}
+            y={rowNum * size + boardTopLeftY}
         />
     {/each}
 {/each}
+
+<Legion
+    x={startCell[0] + boardTopLeftX + size / 2}
+    y={startCell[1] + boardTopLeftY + size / 2}
+/>
+<Human
+    x={startCell[0] + boardTopLeftX + size / 2}
+    y={startCell[1] + boardTopLeftY + size / 2}
+/>
