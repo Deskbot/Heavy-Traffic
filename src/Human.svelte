@@ -1,27 +1,16 @@
 <script>
     import { directionOfAngle } from "./util.js";
+    import Character from "./Character.svelte";
 
+    export let orientation;
     export let x;
     export let y;
-    export let orientation;
-
-    const size = 30;
-    const transform = `rotate(${directionOfAngle(orientation)}, ${x}, ${y})`
 </script>
 
-<style>
-    .human {
-        fill: blue;
-        stroke: black;
-        stroke-width: 2px;
-    }
-
-    .eye {
-        fill: black;
-    }
-</style>
-
-<g transform={transform}>
-    <circle class="human" r={size} cx={x} cy={y} />
-    <circle class="eye" r={size / 4} cx={x} cy={y - size} />
-</g>
+<Character
+    colour={"blue"}
+    orientation={orientation}
+    size={30}
+    x={x}
+    y={y}
+/>
