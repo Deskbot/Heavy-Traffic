@@ -28,7 +28,14 @@
     .toClear {
         fill: #EEBB00;
     }
+
+    #outer {
+        stroke: black;
+        stroke-width: 10px;
+    }
 </style>
+
+<rect id="outer" height={size * rows} width={size * cols} x={levelTopLeftX} y={levelTopLeftY}/>
 
 {#each colsArr as colNum}
     {#each rowsArr as rowNum}
