@@ -52,33 +52,33 @@
     function up() {
         if (currentCharacter.orientation !== Direction.UP) {
             currentCharacter.orientation = Direction.UP;
-        } else {
-            generalMove(currentCharacter, "y", -spacing);
         }
+
+        generalMove(currentCharacter, "y", -spacing);
     }
 
     function left() {
         if (currentCharacter.orientation !== Direction.LEFT) {
             currentCharacter.orientation = Direction.LEFT;
-        } else {
-            generalMove(currentCharacter, "x", -spacing);
         }
+
+        generalMove(currentCharacter, "x", -spacing);
     }
 
     function right() {
         if (currentCharacter.orientation !== Direction.RIGHT) {
             currentCharacter.orientation = Direction.RIGHT;
-        } else {
-            generalMove(currentCharacter, "x", spacing);
         }
+
+        generalMove(currentCharacter, "x", spacing);
     }
 
     function down() {
         if (currentCharacter.orientation !== Direction.DOWN) {
             currentCharacter.orientation = Direction.DOWN;
-        } else {
-            generalMove(currentCharacter, "y", spacing);
         }
+
+        generalMove(currentCharacter, "y", spacing);
     }
 
     function swapCharacter() {
