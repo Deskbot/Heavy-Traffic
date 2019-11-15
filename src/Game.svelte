@@ -21,5 +21,8 @@
 </style>
 
 <svg height="100%" width="100%">
-	<Board rows={5} cols={5} bind:offset={middle} />
+	<Board rows={5} cols={5} bind:offset={middle} cellsToClear={[
+		[0,1], [1,1], [2,1], [3,1], [4,1],
+		[0,2], [1,2], [2,2], [3,2], [4,2],
+	]}/>
 </svg>
