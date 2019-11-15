@@ -1,6 +1,5 @@
 <script>
-    import Human from "./Human.svelte";
-    import Legion from "./Legion.svelte";
+    import Characters from "./Characters.svelte";
     import { arrEquals, intsUpTo } from "./util.js";
 
     export let rows;
@@ -35,19 +34,12 @@
     {#each rowsArr as rowNum}
         <rect
             class:toClear={cellsToClear.some(cell => arrEquals(cell, [rowNum, colNum]))}
-            width={size}
             height={size}
+            width={size}
             x={colNum * size + levelTopLeftX}
             y={rowNum * size + levelTopLeftY}
         />
     {/each}
 {/each}
 
-<Legion
-    x={startCell[0] + levelTopLeftX + size / 2}
-    y={startCell[1] + levelTopLeftY + size / 2}
-/>
-<Human
-    x={startCell[0] + levelTopLeftX + size / 2}
-    y={startCell[1] + levelTopLeftY + size / 2}
-/>
+<Characters startX={startCell[0] + levelTopLeftX + size / 2} startY={startCell[1] + levelTopLeftY + size / 2}/>
