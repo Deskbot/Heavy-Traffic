@@ -1,3 +1,5 @@
+import { Direction } from "./framework.js";
+
 export function arrEquals(arr1, arr2) {
     if (arr1.length !== arr2.length) {
         return false;
@@ -10,6 +12,15 @@ export function arrEquals(arr1, arr2) {
     }
 
     return true;
+}
+
+export function directionOfAngle(dir) {
+    switch (dir) {
+        case Direction.UP: return 0;
+        case Direction.LEFT: return -90;
+        case Direction.RIGHT: return 90;
+        case Direction.DOWN: return 180;
+    }
 }
 
 export function intsUpTo(n) {

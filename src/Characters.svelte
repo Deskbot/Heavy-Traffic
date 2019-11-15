@@ -1,4 +1,5 @@
 <script>
+    import { Direction } from "./framework.js";
     import Human from "./Human.svelte";
     import Legion from "./Legion.svelte";
 
@@ -21,10 +22,12 @@
     };
 
     let human = {
+        orientation: Direction.DOWN,
         x: startX,
         y: startY,
     };
     let legion = {
+        orientation: Direction.RIGHT,
         x: startX,
         y: startY,
     };
@@ -96,10 +99,12 @@
 </script>
 
 <Legion
+    bind:orientation={legion.orientation}
     bind:x={legion.x}
     bind:y={legion.y}
 />
 <Human
+    bind:orientation={human.orientation}
     bind:x={human.x}
     bind:y={human.y}
 />
