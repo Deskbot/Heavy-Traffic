@@ -22,12 +22,12 @@
     };
 
     let human = {
-        orientation: Direction.DOWN,
+        orientation: Direction.UP,
         x: startX,
         y: startY,
     };
     let legion = {
-        orientation: Direction.RIGHT,
+        orientation: Direction.UP,
         x: startX,
         y: startY,
     };
@@ -50,19 +50,35 @@
     }
 
     function up() {
-        generalMove(currentCharacter, "y", -spacing);
+        if (currentCharacter.orientation !== Direction.UP) {
+            currentCharacter.orientation = Direction.UP;
+        } else {
+            generalMove(currentCharacter, "y", -spacing);
+        }
     }
 
     function left() {
-        generalMove(currentCharacter, "x", -spacing);
+        if (currentCharacter.orientation !== Direction.LEFT) {
+            currentCharacter.orientation = Direction.LEFT;
+        } else {
+            generalMove(currentCharacter, "x", -spacing);
+        }
     }
 
     function right() {
-        generalMove(currentCharacter, "x", spacing);
+        if (currentCharacter.orientation !== Direction.RIGHT) {
+            currentCharacter.orientation = Direction.RIGHT;
+        } else {
+            generalMove(currentCharacter, "x", spacing);
+        }
     }
 
     function down() {
-        generalMove(currentCharacter, "y", spacing);
+        if (currentCharacter.orientation !== Direction.DOWN) {
+            currentCharacter.orientation = Direction.DOWN;
+        } else {
+            generalMove(currentCharacter, "y", spacing);
+        }
     }
 
     function swapCharacter() {

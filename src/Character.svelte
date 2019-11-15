@@ -23,5 +23,5 @@
 
 <g transform="{rotate} {translate}" >
     <circle class="character" r={size} fill={colour} />
-    <circle class="eye" r={size / 4} cy={size} />
+    <circle class="eye" r={size / 4} cy={-size} />
 </g>
