@@ -6,11 +6,11 @@
     export let startX;
     export let startY;
 
-    const human = {
+    let human = {
         x: startX,
         y: startY,
     };
-    const legion = {
+    let legion = {
         x: startX,
         y: startY,
     };
@@ -35,16 +35,23 @@
 
     window.addEventListener("keydown", (e) => {
         const eventMap = {
-            w: up(),
-            a: left(),
-            s: down(),
-            d: right(),
+            w: () => up(),
+            a: () => left(),
+            s: () => down(),
+            d: () => right(),
         }
 
         const whatToDo = eventMap[e.key]
         if (whatToDo) {
             whatToDo();
+
+            // update
+            currentCharacter = currentCharacter;
+            human = human;
+            legion = legion;
         }
+
+        console.log(currentCharacter, spacing)
     });
 </script>
 
