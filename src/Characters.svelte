@@ -18,11 +18,11 @@
     let currentCharacter = human;
 
     function up() {
-        currentCharacter.x -= spacing;
+        currentCharacter.y -= spacing;
     }
 
     function left() {
-        currentCharacter.y -= spacing;
+        currentCharacter.x -= spacing;
     }
 
     function right() {
