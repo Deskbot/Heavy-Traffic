@@ -30,6 +30,7 @@
     };
 
     let currentCharacter = human;
+    let otherCharacter = legion;
 
     function generalMove(character, axis, distance) {
         const finalMagnitude = character[axis] + distance;
@@ -61,12 +62,23 @@
         generalMove(currentCharacter, "y", spacing);
     }
 
+    function swapCharacter() {
+        let iTooAmAComputerScientist = currentCharacter;
+        currentCharacter = otherCharacter;
+        otherCharacter = iTooAmAComputerScientist;
+    }
+
     window.addEventListener("keydown", (e) => {
         const eventMap = {
             w: () => up(),
             a: () => left(),
             s: () => down(),
             d: () => right(),
+        }
+
+        if (e.shiftKey) {
+            swapCharacter();
+            return;
         }
 
         const whatToDo = eventMap[e.key]
