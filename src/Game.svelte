@@ -1,5 +1,5 @@
 <script>
-	import Board from "./Board.svelte";
+	import Level from "./Level.svelte";
 
 	let middle = {
 		x: Math.floor(window.innerWidth / 2),
@@ -21,7 +21,7 @@
 </style>
 
 <svg height="100%" width="100%">
-	<Board
+	<Level
 		bind:offset={middle}
 		rows={5}
 		cols={5}

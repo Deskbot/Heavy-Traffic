@@ -10,10 +10,10 @@
     export let startCell;
 
     const size = 150;
-    const boardWidth = size * cols;
-    const boardHeight = size * rows;
-    const boardTopLeftX = offset.x - boardHeight / 2;
-    const boardTopLeftY = offset.y - boardWidth / 2;
+    const levelWidth = size * cols;
+    const levelHeight = size * rows;
+    const levelTopLeftX = offset.x - levelHeight / 2;
+    const levelTopLeftY = offset.y - levelWidth / 2;
 
     const rowsArr = intsUpTo(rows);
     const colsArr = intsUpTo(cols);
@@ -37,17 +37,17 @@
             class:toClear={cellsToClear.some(cell => arrEquals(cell, [rowNum, colNum]))}
             width={size}
             height={size}
-            x={colNum * size + boardTopLeftX}
-            y={rowNum * size + boardTopLeftY}
+            x={colNum * size + levelTopLeftX}
+            y={rowNum * size + levelTopLeftY}
         />
     {/each}
 {/each}
 
 <Legion
-    x={startCell[0] + boardTopLeftX + size / 2}
-    y={startCell[1] + boardTopLeftY + size / 2}
+    x={startCell[0] + levelTopLeftX + size / 2}
+    y={startCell[1] + levelTopLeftY + size / 2}
 />
 <Human
-    x={startCell[0] + boardTopLeftX + size / 2}
-    y={startCell[1] + boardTopLeftY + size / 2}
+    x={startCell[0] + levelTopLeftX + size / 2}
+    y={startCell[1] + levelTopLeftY + size / 2}
 />
