@@ -2,9 +2,23 @@
     import Human from "./Human.svelte";
     import Legion from "./Legion.svelte";
 
+    export let maxX;
+    export let maxY;
+    export let minX;
+    export let minY;
     export let spacing;
     export let startX;
     export let startY;
+
+    const maxPos = {
+        x: maxX,
+        y: maxY,
+    };
+
+    const minPos = {
+        x: minX,
+        y: minY,
+    };
 
     let human = {
         x: startX,
@@ -17,20 +31,34 @@
 
     let currentCharacter = human;
 
+    function generalMove(character, axis, distance) {
+        const finalMagnitude = character[axis] + distance;
+
+        if (finalMagnitude > maxPos[axis]) {
+            return;
+        }
+
+        if (finalMagnitude < minPos[axis]) {
+            return;
+        }
+
+        character[axis] = finalMagnitude;
+    }
+
     function up() {
-        currentCharacter.y -= spacing;
+        generalMove(currentCharacter, "y", -spacing);
     }
 
     function left() {
-        currentCharacter.x -= spacing;
+        generalMove(currentCharacter, "x", -spacing);
     }
 
     function right() {
-        currentCharacter.x += spacing;
+        generalMove(currentCharacter, "x", spacing);
     }
 
     function down() {
-        currentCharacter.y += spacing;
+        generalMove(currentCharacter, "y", spacing);
     }
 
     window.addEventListener("keydown", (e) => {
@@ -51,7 +79,7 @@
             legion = legion;
         }
 
-        console.log(currentCharacter, spacing)
+        console.log(currentCharacter, minPos, maxPos)
     });
 </script>
 

@@ -50,6 +50,10 @@
 {/each}
 
 <Characters
+    maxX={levelTopLeftX + levelWidth}
+    maxY={levelTopLeftY + levelHeight}
+    minX={levelTopLeftX}
+    minY={levelTopLeftY}
     spacing={size}
     startX={startCell[0] + levelTopLeftX + size / 2}
     startY={startCell[1] + levelTopLeftY + size / 2}
