@@ -83,6 +83,10 @@
             cars = cars;
         }
     }
+
+    function forceCarsUpdate() {
+        cars = cars;
+    }
 </script>
 
 <style>
@@ -131,6 +135,7 @@
     maxY={levelTopLeftY + levelHeight}
     minX={levelTopLeftX + size / 2}
     minY={levelTopLeftY + size / 2}
+    on:moved={forceCarsUpdate}
     spacing={size}
     startX={startCell[0]}
     startY={startCell[1]}

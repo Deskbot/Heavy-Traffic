@@ -63,6 +63,10 @@
             mover.x = x;
             mover.y = y;
         }
+
+        if (toMove.length > 0) {
+            dispatch("moved");
+        }
     }
 
     function up() {
@@ -120,7 +124,7 @@
             legion = legion;
         }
 
-        console.log(currentCharacter, minPos, maxPos)
+        console.log(currentCharacter)
     });
 </script>
 
