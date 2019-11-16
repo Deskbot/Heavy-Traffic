@@ -21,7 +21,7 @@
 <svg height="100%" width="100%">
 	<defs>
 		<filter id="shadow">
-			<feDropShadow stdDeviation="0.4" flood-color="white"/>
+			<feDropShadow stdDeviation="3" flood-color="white" dx="0" dy="0"/>
 		</filter>
 	</defs>
 	<Level

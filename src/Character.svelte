@@ -21,13 +21,7 @@
         fill: black;
     }
     .selected {
-        box-shadow: white;
-    }
-
-    .selected {
         filter:url(#shadow);
-        /* -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
-        filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7)); */
     }
 </style>
 
