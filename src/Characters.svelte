@@ -50,44 +50,40 @@
     }
 
     function up() {
+        currentCharacter.orientation = Direction.UP;
+
         if (!canMove(currentCharacter, Direction.UP)) {
             return;
-        }
-        if (currentCharacter.orientation !== Direction.UP) {
-            currentCharacter.orientation = Direction.UP;
         }
 
         generalMove(currentCharacter, Direction.UP);
     }
 
     function left() {
+        currentCharacter.orientation = Direction.LEFT;
+
         if (!canMove(currentCharacter, Direction.LEFT)) {
             return;
-        }
-        if (currentCharacter.orientation !== Direction.LEFT) {
-            currentCharacter.orientation = Direction.LEFT;
         }
 
         generalMove(currentCharacter, Direction.LEFT);
     }
 
     function right() {
+        currentCharacter.orientation = Direction.RIGHT;
+
         if (!canMove(currentCharacter, Direction.RIGHT)) {
             return;
-        }
-        if (currentCharacter.orientation !== Direction.RIGHT) {
-            currentCharacter.orientation = Direction.RIGHT;
         }
 
         generalMove(currentCharacter, Direction.RIGHT);
     }
 
     function down() {
+        currentCharacter.orientation = Direction.DOWN;
+
         if (!canMove(currentCharacter, Direction.DOWN)) {
             return;
-        }
-        if (currentCharacter.orientation !== Direction.DOWN) {
-            currentCharacter.orientation = Direction.DOWN;
         }
 
         generalMove(currentCharacter, Direction.DOWN);
