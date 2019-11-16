@@ -23,7 +23,6 @@
     const carLocations = emptyMatrix(rows, cols);
     let cars = [];
 
-    let grabbing;
     $: grabbedCar = cars.find(car => car.grabbed);
 
     for (const pos of carPoses) {
@@ -46,17 +45,17 @@
             return [];
         }
 
-        // character moving to empty space
-        if (carLocations[x][y]) {
-            return [];
-        }
-
-        if (grabbing) {
+        if (char.grabbing) {
             if (canMove(grabbedCar, dir)) {
                 return [char, grabbedCar];
             }
             return [];
         } else {
+            // character moving to empty space
+            if (carLocations[x][y]) {
+                return [];
+            }
+
             return [char];
         }
     }
