@@ -19,6 +19,11 @@
 </style>
 
 <svg height="100%" width="100%">
+	<defs>
+		<filter id="shadow">
+			<feDropShadow stdDeviation="0.4" flood-color="white"/>
+		</filter>
+	</defs>
 	<Level
 		bind:offset={middle}
 		rows={5}

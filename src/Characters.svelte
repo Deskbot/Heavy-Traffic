@@ -35,6 +35,9 @@
     let currentCharacter = human;
     let otherCharacter = legion;
 
+    $: humanIsSelected = human === currentCharacter;
+    $: legionIsSelected = legion === currentCharacter;
+
     function generalMove(character, axis, distance) {
         const finalMagnitude = character[axis] + distance;
 
@@ -116,11 +119,13 @@
 
 <Legion
     bind:orientation={legion.orientation}
+    bind:selected={legionIsSelected}
     bind:x={legion.x}
     bind:y={legion.y}
 />
 <Human
     bind:orientation={human.orientation}
+    bind:selected={humanIsSelected}
     bind:x={human.x}
     bind:y={human.y}
 />
