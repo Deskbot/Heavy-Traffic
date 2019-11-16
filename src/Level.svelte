@@ -50,6 +50,9 @@
     }
 
     function grab(legion) {
+
+        console.log(cars);
+
         if (legion.grabbing) {
             legion.grabbing = false;
 
@@ -57,19 +60,22 @@
                 car.grabbed = false;
             }
 
+            cars = cars;
+
             return;
         }
 
         // get the thing in that loc
         const [x,y] = translate(legion, legion.orientation);
 
-        if (carLocations[x][y]) {
+        const car = cars.find(car => car.x === x && car.y === y);
+        if (car !== undefined) {
             legion.grabbing = true;
-
-            const car = cars.find(car => car.x === x && car.y === y);
             car.grabbed = true;
             cars = cars;
         }
+
+        console.log(cars);
     }
 </script>
 

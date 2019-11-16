@@ -11,12 +11,6 @@
     const size = 100;
 </script>
 
-<style>
-    rect {
-        fill: black;
-    }
-</style>
-
 {#each cars as car}
     <Car
         grabbed={car.grabbed}
