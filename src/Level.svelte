@@ -134,8 +134,6 @@
 {/each}
 
 <Cars
-    maxX={levelTopLeftX + levelWidth}
-    maxY={levelTopLeftY + levelHeight}
     minX={levelTopLeftX}
     minY={levelTopLeftY}
     bind:cars={cars}

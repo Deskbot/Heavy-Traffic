@@ -1,8 +1,6 @@
 <script>
     import Car from "./Car.svelte";
 
-    export let maxX;
-    export let maxY;
     export let minX;
     export let minY;
     export let cars;
