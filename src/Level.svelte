@@ -4,7 +4,7 @@
     import { Direction, Entity, translate } from "./framework.js";
     import { arrEquals, emptyMatrix, intsUpTo } from "./util.js";
 
-    export let carPoses;
+    export let carDef;
     export let rows;
     export let cols;
     export let offset;
@@ -24,16 +24,32 @@
 
     $: grabbedCar = cars.find(car => car.grabbed);
 
-    for (const pos of carPoses) {
+    for (const car of carDef) {
+        const [x, y, across, down] = car;
+        const poses = [];
+
+        let partX, partY;
+
+        for (let i = 0; i < across; i++) {
+            for (let i = 0; i < down; i++) {
+                poses.push({
+                    x: partX,
+                    y: partY,
+                });
+            }
+        }
+
         cars.push({
-            x: pos[0],
-            y: pos[1],
+            poses,
+            x,
+            y,
+            across,
+            down,
             grabbed: false,
         });
     }
 
     $: win = (() => {
-        console.log(cellsToClear, cars);
         for (const cell of cellsToClear) {
             for (const car of cars) {
                 if (cell[0] === car.x && cell[1] === car.y) {
@@ -41,7 +57,6 @@
                 }
             }
         }
-
         return true;
     })();
 

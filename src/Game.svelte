@@ -25,9 +25,9 @@
 		</filter>
 	</defs>
 	<Level
-		carPoses={[
-			[1,1],
-			[2,3]
+		carDef={[
+			[1,1, 1, 2],
+			[2,3, 3, 1],
 		]}
 		bind:offset={middle}
 		rows={5}
