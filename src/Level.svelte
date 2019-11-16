@@ -21,9 +21,15 @@
     const colsArr = intsUpTo(cols);
 
     const carLocations = emptyMatrix(rows, cols);
+    const cars = [];
 
     for (const pos of carPoses) {
         carLocations[pos[0]][pos[1]] = true;
+        cars.push({
+            x: pos[0],
+            y: pos[1],
+            grabbed: false,
+        })
     }
 
     function canMove(char, dir) {
@@ -77,7 +83,7 @@
     maxY={levelTopLeftY + levelHeight}
     minX={levelTopLeftX}
     minY={levelTopLeftY}
-    poses={carPoses}
+    cars={cars}
     spacing={size}
 />
 <Characters

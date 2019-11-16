@@ -1,4 +1,5 @@
 <script>
+    export let grabbed;
     export let height;
     export let width;
     export let x;
@@ -11,6 +12,10 @@
         stroke: black;
         stroke-width: 4px;
     }
+
+    .grabbed {
+        fill: black;
+    }
 </style>
 
-<rect height={height} width={width} x={x} y={y}/>
+<rect class:grabbed={grabbed} height={height} width={width} x={x} y={y}/>
