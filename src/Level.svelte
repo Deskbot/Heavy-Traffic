@@ -29,8 +29,21 @@
             x: pos[0],
             y: pos[1],
             grabbed: false,
-        })
+        });
     }
+
+    $: win = (() => {
+        console.log(cellsToClear, cars);
+        for (const cell of cellsToClear) {
+            for (const car of cars) {
+                if (cell[0] === car.x && cell[1] === car.y) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    })();
 
     function canMove(char, dir, otherChar) {
         let [x,y] = translate(char, dir);
@@ -124,7 +137,7 @@
 {#each colsArr as colNum}
     {#each rowsArr as rowNum}
         <rect
-            class:toClear={cellsToClear.some(cell => arrEquals(cell, [rowNum, colNum]))}
+            class:toClear={cellsToClear.some(cell => arrEquals(cell, [colNum, rowNum]))}
             height={size}
             width={size}
             x={colNum * size + levelTopLeftX}
@@ -151,3 +164,8 @@
     startX={startCell[0]}
     startY={startCell[1]}
 />
+{#if win}
+    <text x={levelTopLeftX + levelWidth / 2} y={levelTopLeftY + levelHeight / 2}>
+        A Winner is You!
+    </text>
+{/if}
