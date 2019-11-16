@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    import { Direction, Entity, translate } from "./framework.js";
+    import { Direction, Entity, isParallel, translate } from "./framework.js";
     import Human from "./Human.svelte";
     import Legion from "./Legion.svelte";
 
@@ -45,8 +45,16 @@
     $: humanIsSelected = human === currentCharacter;
     $: legionIsSelected = legion === currentCharacter;
 
+    function canRotate(char, dir) {
+        return !(char.grabbing && !isParallel(char.orientation, dir));
+    }
+
     function generalMove(character, direction) {
-        currentCharacter.orientation = direction;
+        if (canRotate(character, direction)) {
+            currentCharacter.orientation = direction;
+        } else {
+            return;
+        }
 
         if (!canMove(currentCharacter, direction)) {
             return;
