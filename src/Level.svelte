@@ -11,8 +11,8 @@
     const size = 150;
     const levelWidth = size * cols;
     const levelHeight = size * rows;
-    const levelTopLeftX = offset.x - levelHeight / 2;
-    const levelTopLeftY = offset.y - levelWidth / 2;
+    $: levelTopLeftX = offset.x - levelHeight / 2;
+    $: levelTopLeftY = offset.y - levelWidth / 2;
 
     const rowsArr = intsUpTo(rows);
     const colsArr = intsUpTo(cols);
@@ -55,6 +55,6 @@
     minX={levelTopLeftX}
     minY={levelTopLeftY}
     spacing={size}
-    startX={startCell[0] + levelTopLeftX + size / 2}
-    startY={startCell[1] + levelTopLeftY + size / 2}
+    startX={startCell[0] + size / 2}
+    startY={startCell[1] + size / 2}
 />

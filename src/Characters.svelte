@@ -15,7 +15,6 @@
         x: maxX,
         y: maxY,
     };
-
     const minPos = {
         x: minX,
         y: minY,
@@ -39,17 +38,16 @@
     $: legionIsSelected = legion === currentCharacter;
 
     function generalMove(character, axis, distance) {
-        const finalMagnitude = character[axis] + distance;
+        const finalMagnitude = character[axis] + distance + minPos[axis];
 
         if (finalMagnitude > maxPos[axis]) {
             return;
         }
-
         if (finalMagnitude < minPos[axis]) {
             return;
         }
 
-        character[axis] = finalMagnitude;
+        character[axis] = finalMagnitude - minPos[axis];
     }
 
     function up() {
@@ -129,12 +127,12 @@
 <Legion
     bind:orientation={legion.orientation}
     bind:selected={legionIsSelected}
-    bind:x={legion.x}
-    bind:y={legion.y}
+    x={legion.x + minX}
+    y={legion.y + minY}
 />
 <Human
     bind:orientation={human.orientation}
     bind:selected={humanIsSelected}
-    bind:x={human.x}
-    bind:y={human.y}
+    x={human.x + minX}
+    y={human.y + minY}
 />
