@@ -3,8 +3,6 @@
     export let width;
     export let x;
     export let y;
-
-    const size = 100;
 </script>
 
 <style>
@@ -15,4 +13,4 @@
     }
 </style>
 
-<rect height={size} width={size} x={x} y={y}/>
+<rect height={height} width={width} x={x} y={y}/>
