@@ -93,19 +93,27 @@
     }
 
     function canMoveCar(car, dir, otherChar) {
-        let [x,y] = translate(car, dir);
+        for (const pos of car.poses) {
+            const [x,y] = translate(car, dir);
 
-        if (x < 0 || y < 0) {
-            return false;
+            if (x < 0 || y < 0) {
+                return false;
+            }
+
+            if (x > cols - 1 || y > rows - 1) {
+                return false;
+            }
+
+            const poses = allCarPoses(cars.filter(aCarThatExists => aCarThatExists !== car));
+            const cantGoThere = poses.some(pos => pos.x === x && pos.y === y)
+                || otherChar.x === x && otherChar.y === y;
+
+            if (cantGoThere) {
+                return false;
+            }
         }
 
-        if (x > cols - 1 || y > rows - 1) {
-            return false;
-        }
-
-        const poses = allCarPoses(cars);
-        return !poses.some(pos => pos.x === x && pos.y === y)
-            && !(otherChar.x === x && otherChar.y === y);
+        return true;
     }
 
     function grab(legion) {

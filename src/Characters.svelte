@@ -135,8 +135,6 @@
             human = human;
             legion = legion;
         }
-
-        console.log(currentCharacter)
     });
 </script>
 
