@@ -118,19 +118,15 @@
         return true;
     }
 
-    function grab(legion) {
+    function toggleGrab(legion) {
         if (legion.grabbing) {
-            legion.grabbing = false;
-
-            for (const car of cars) {
-                car.grabbed = false;
-            }
-
-            cars = cars;
-
-            return;
+            unGrab(legion);
+        } else {
+            grab(legion);
         }
+    }
 
+    function grab(legion) {
         // get the thing in that loc
         const [x,y] = translate(legion, legion.orientation);
 
@@ -142,6 +138,16 @@
                 break;
             }
         }
+    }
+
+    function unGrab(legion) {
+        legion.grabbing = false;
+
+        for (const car of cars) {
+            car.grabbed = false;
+        }
+
+        cars = cars;
     }
 
     function forceCarsUpdate() {
@@ -188,7 +194,8 @@
 />
 <Characters
     canMove={canMove}
-    grab={grab}
+    unGrab={unGrab}
+    toggleGrab={toggleGrab}
     maxX={levelTopLeftX + levelWidth}
     maxY={levelTopLeftY + levelHeight}
     minX={levelTopLeftX + size / 2}

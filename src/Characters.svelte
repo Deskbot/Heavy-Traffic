@@ -5,7 +5,8 @@
     import Legion from "./Legion.svelte";
 
     export let canMove;
-    export let grab;
+    export let toggleGrab;
+    export let unGrab;
     export let maxX;
     export let maxY;
     export let minX;
@@ -98,6 +99,7 @@
     }
 
     function swapCharacter() {
+        unGrab(legion);
         let imSomeWhatOfAComputerScientistMyself = currentCharacter;
         currentCharacter = otherCharacter;
         otherCharacter = imSomeWhatOfAComputerScientistMyself;
@@ -105,6 +107,7 @@
 
     function teleport() {
         if (currentCharacter === legion) {
+            unGrab(legion);
             legion.x = human.x;
             legion.y = human.y;
         }
@@ -123,7 +126,7 @@
             d: () => right(),
 
             e: () => teleport(),
-            " ": () => grab(legion),
+            " ": () => currentCharacter === legion && toggleGrab(legion),
         }
 
         const whatToDo = eventMap[e.key]
