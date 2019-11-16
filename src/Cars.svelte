@@ -12,8 +12,8 @@
 {#each cars as car}
     <Car
         grabbed={car.grabbed}
-        height={car.down * size}
-        width={car.across * size}
+        height={(car.down - 1) * spacing + size}
+        width={(car.across - 1) * spacing + size}
         x={car.x * spacing + minX + (spacing / 2 - size / 2)}
         y={car.y * spacing + minY + (spacing / 2 - size / 2)}
     />
