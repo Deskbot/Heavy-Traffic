@@ -23,6 +23,17 @@ export function directionOfAngle(dir) {
     }
 }
 
+export function emptyMatrix(rows, cols) {
+    const m = [];
+
+    for (let i = 0; i < rows; i++) {
+        m[i] = [];
+        m[i].length = cols;
+    }
+
+    return m;
+}
+
 export function intsUpTo(n) {
     const arr = [];
 

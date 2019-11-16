@@ -1,8 +1,10 @@
 <script>
     import Cars from "./Cars.svelte";
     import Characters from "./Characters.svelte";
-    import { arrEquals, intsUpTo } from "./util.js";
+    import { Direction, Entity, translate } from "./framework.js";
+    import { arrEquals, emptyMatrix, intsUpTo } from "./util.js";
 
+    export let carPoses;
     export let rows;
     export let cols;
     export let offset;
@@ -17,6 +19,26 @@
 
     const rowsArr = intsUpTo(rows);
     const colsArr = intsUpTo(cols);
+
+    const carLocations = emptyMatrix(rows, cols);
+
+    for (const pos of carPoses) {
+        carLocations[pos[0]][pos[1]] = true;
+    }
+
+    function canMove(char, dir) {
+        let [x,y] = translate(char, dir);
+
+        if (x < 0 || y < 0) {
+            return false;
+        }
+
+        if (x > cols - 1 || y > rows - 1) {
+            return false;
+        }
+
+        return !carLocations[x][y]; // nothing here
+    }
 </script>
 
 <style>
@@ -61,11 +83,12 @@
     spacing={size}
 />
 <Characters
+    canMove={canMove}
     maxX={levelTopLeftX + levelWidth}
     maxY={levelTopLeftY + levelHeight}
-    minX={levelTopLeftX}
-    minY={levelTopLeftY}
+    minX={levelTopLeftX + size / 2}
+    minY={levelTopLeftY + size / 2}
     spacing={size}
-    startX={startCell[0] + size / 2}
-    startY={startCell[1] + size / 2}
+    startX={startCell[0]}
+    startY={startCell[1]}
 />
