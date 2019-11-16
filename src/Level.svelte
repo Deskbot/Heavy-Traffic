@@ -94,7 +94,7 @@
 
     function canMoveCar(car, dir, otherChar) {
         for (const pos of car.poses) {
-            const [x,y] = translate(car, dir);
+            const [x,y] = translate(pos, dir);
 
             if (x < 0 || y < 0) {
                 return false;
@@ -104,7 +104,9 @@
                 return false;
             }
 
-            const poses = allCarPoses(cars.filter(aCarThatExists => aCarThatExists !== car));
+            const poses = allCarPoses(
+                cars.filter(aCarThatExists => aCarThatExists !== car)
+            );
             const cantGoThere = poses.some(pos => pos.x === x && pos.y === y)
                 || otherChar.x === x && otherChar.y === y;
 
