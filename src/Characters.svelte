@@ -50,13 +50,15 @@
     }
 
     function generalMove(character, direction) {
-        if (canRotate(character, direction)) {
-            currentCharacter.orientation = direction;
-        } else {
-            return;
+        if (character === legion) {
+            if (canRotate(character, direction)) {
+                currentCharacter.orientation = direction;
+            } else {
+                return;
+            }
         }
 
-        const toMove = canMove(currentCharacter, direction);
+        const toMove = canMove(currentCharacter, direction, otherCharacter);
 
         for (const mover of toMove) {
             const [x,y] = translate(mover, direction);

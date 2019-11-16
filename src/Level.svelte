@@ -32,7 +32,7 @@
         })
     }
 
-    function canMove(char, dir) {
+    function canMove(char, dir, otherChar) {
         let [x,y] = translate(char, dir);
 
         if (x < 0 || y < 0) {
@@ -44,7 +44,7 @@
         }
 
         if (char.grabbing) {
-            if (canMove(grabbedCar, dir)) {
+            if (canMoveCar(grabbedCar, dir, otherChar)) {
                 return [char, grabbedCar];
             }
             return [];
@@ -56,6 +56,21 @@
 
             return [char];
         }
+    }
+
+    function canMoveCar(car, dir, otherChar) {
+        let [x,y] = translate(car, dir);
+
+        if (x < 0 || y < 0) {
+            return [];
+        }
+
+        if (x > cols - 1 || y > rows - 1) {
+            return [];
+        }
+
+        return !cars.some(car => car.x === x && car.y === y)
+            && !(otherChar.x === x && otherChar.y === y);
     }
 
     function grab(legion) {
