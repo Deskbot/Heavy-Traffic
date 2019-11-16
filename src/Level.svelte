@@ -1,4 +1,5 @@
 <script>
+    import Cars from "./Cars.svelte";
     import Characters from "./Characters.svelte";
     import { arrEquals, intsUpTo } from "./util.js";
 
@@ -49,6 +50,16 @@
     {/each}
 {/each}
 
+<Cars
+    maxX={levelTopLeftX + levelWidth}
+    maxY={levelTopLeftY + levelHeight}
+    minX={levelTopLeftX}
+    minY={levelTopLeftY}
+    poses={[
+        [3,3]
+    ]}
+    spacing={size}
+/>
 <Characters
     maxX={levelTopLeftX + levelWidth}
     maxY={levelTopLeftY + levelHeight}
