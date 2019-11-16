@@ -103,7 +103,8 @@
             return false;
         }
 
-        return !cars.some(car => car.x === x && car.y === y)
+        const poses = allCarPoses(cars);
+        return !poses.some(pos => pos.x === x && pos.y === y)
             && !(otherChar.x === x && otherChar.y === y);
     }
 
