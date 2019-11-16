@@ -1,7 +1,7 @@
 <script>
     import Cars from "./Cars.svelte";
     import Characters from "./Characters.svelte";
-    import { Direction, Entity, translate } from "./framework.js";
+    import { Direction, Entity, allCarPoses, translate } from "./framework.js";
     import { arrEquals, emptyMatrix, intsUpTo } from "./util.js";
 
     export let carDef;
@@ -83,10 +83,8 @@
             return [];
         } else {
             // character moving to empty space
-            const allCarPoses = cars
-                .map(car => car.poses)
-                .reduce((prev, curr) => prev.concat(curr), []);
-            if (allCarPoses.some(car => car.x === x && car.y === y)) {
+            const poses = allCarPoses(cars);
+            if (poses.some(car => car.x === x && car.y === y)) {
                 return [];
             }
 
@@ -125,11 +123,13 @@
         // get the thing in that loc
         const [x,y] = translate(legion, legion.orientation);
 
-        const car = cars.find(car => car.x === x && car.y === y);
-        if (car !== undefined) {
-            legion.grabbing = true;
-            car.grabbed = true;
-            cars = cars;
+        for (const car of cars) {
+            if (car.poses.find(pos => pos.x === x && pos.y === y) !== undefined) {
+                legion.grabbing = true;
+                car.grabbed = true;
+                cars = cars;
+                break;
+            }
         }
     }
 

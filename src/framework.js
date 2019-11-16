@@ -10,6 +10,12 @@ export const Entity = {
     Character: Symbol("Character"),
 };
 
+export function allCarPoses(cars) {
+    return cars
+        .map(car => car.poses)
+        .reduce((prev, curr) => prev.concat(curr), []);
+}
+
 export function directionOfAngle(dir) {
     switch (dir) {
         case Direction.UP: return 0;
