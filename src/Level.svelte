@@ -39,14 +39,26 @@
         let [x,y] = translate(char, dir);
 
         if (x < 0 || y < 0) {
-            return false;
+            return [];
         }
 
         if (x > cols - 1 || y > rows - 1) {
-            return false;
+            return [];
         }
 
-        return !carLocations[x][y]; // nothing here
+        // character moving to empty space
+        if (carLocations[x][y]) {
+            return [];
+        }
+
+        if (grabbing) {
+            if (canMove(grabbedCar, dir)) {
+                return [char, grabbedCar];
+            }
+            return [];
+        } else {
+            return [char];
+        }
     }
 
     function grab(legion) {

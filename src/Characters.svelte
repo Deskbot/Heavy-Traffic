@@ -56,13 +56,13 @@
             return;
         }
 
-        if (!canMove(currentCharacter, direction)) {
-            return;
-        }
+        const toMove = canMove(currentCharacter, direction);
 
-        const [x,y] = translate(character, direction);
-        character.x = x;
-        character.y = y;
+        for (const mover of toMove) {
+            const [x,y] = translate(mover, direction);
+            mover.x = x;
+            mover.y = y;
+        }
     }
 
     function up() {
