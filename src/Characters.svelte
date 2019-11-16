@@ -106,11 +106,9 @@
     }
 
     function teleport() {
-        if (currentCharacter === legion) {
-            unGrab(legion);
-            legion.x = human.x;
-            legion.y = human.y;
-        }
+        unGrab(legion);
+        legion.x = human.x;
+        legion.y = human.y;
     }
 
     window.addEventListener("keydown", (e) => {
