@@ -5,6 +5,7 @@
     import Legion from "./Legion.svelte";
 
     export let canMove;
+    export let grab;
     export let maxX;
     export let maxY;
     export let minX;
@@ -31,6 +32,7 @@
         y: startY,
     };
     let legion = {
+        grabbing: false,
         orientation: Direction.UP,
         type: Entity.Character,
         x: startX,
@@ -115,6 +117,7 @@
             d: () => right(),
 
             e: () => teleport(),
+            " ": () => grab(legion),
         }
 
         const whatToDo = eventMap[e.key]

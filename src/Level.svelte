@@ -21,7 +21,10 @@
     const colsArr = intsUpTo(cols);
 
     const carLocations = emptyMatrix(rows, cols);
-    const cars = [];
+    let cars = [];
+
+    let grabbing;
+    $: grabbedCar = cars.find(car => car.grabbed);
 
     for (const pos of carPoses) {
         carLocations[pos[0]][pos[1]] = true;
@@ -44,6 +47,29 @@
         }
 
         return !carLocations[x][y]; // nothing here
+    }
+
+    function grab(legion) {
+        if (legion.grabbing) {
+            legion.grabbing = false;
+
+            for (const car of cars) {
+                car.grabbed = false;
+            }
+
+            return;
+        }
+
+        // get the thing in that loc
+        const [x,y] = translate(legion, legion.orientation);
+
+        if (carLocations[x][y]) {
+            legion.grabbing = true;
+
+            const car = cars.find(car => car.x === x && car.y === y);
+            car.grabbed = true;
+            cars = cars;
+        }
     }
 </script>
 
@@ -83,11 +109,12 @@
     maxY={levelTopLeftY + levelHeight}
     minX={levelTopLeftX}
     minY={levelTopLeftY}
-    cars={cars}
+    bind:cars={cars}
     spacing={size}
 />
 <Characters
     canMove={canMove}
+    grab={grab}
     maxX={levelTopLeftX + levelWidth}
     maxY={levelTopLeftY + levelHeight}
     minX={levelTopLeftX + size / 2}
