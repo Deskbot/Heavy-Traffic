@@ -26,7 +26,8 @@
 	</defs>
 	<Level
 		carPoses={[
-			[1,1]
+			[1,1],
+			[2,3]
 		]}
 		bind:offset={middle}
 		rows={5}
