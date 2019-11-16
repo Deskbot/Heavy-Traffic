@@ -56,6 +56,8 @@
             } else {
                 return;
             }
+        } else if (character === human) {
+            currentCharacter.orientation = direction;
         }
 
         const toMove = canMove(currentCharacter, direction, otherCharacter);
