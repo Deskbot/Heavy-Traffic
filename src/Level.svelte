@@ -20,13 +20,11 @@
     const rowsArr = intsUpTo(rows);
     const colsArr = intsUpTo(cols);
 
-    const carLocations = emptyMatrix(rows, cols);
     let cars = [];
 
     $: grabbedCar = cars.find(car => car.grabbed);
 
     for (const pos of carPoses) {
-        carLocations[pos[0]][pos[1]] = true;
         cars.push({
             x: pos[0],
             y: pos[1],
@@ -52,7 +50,7 @@
             return [];
         } else {
             // character moving to empty space
-            if (carLocations[x][y]) {
+            if (cars.some(car => car.x === x && car.y === y)) {
                 return [];
             }
 
