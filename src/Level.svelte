@@ -28,14 +28,19 @@
         const [x, y, across, down] = car;
         const poses = [];
 
-        let partX, partY;
+        let partX = x;
+        let partY = y;
 
         for (let i = 0; i < across; i++) {
             for (let i = 0; i < down; i++) {
+
                 poses.push({
                     x: partX,
                     y: partY,
                 });
+
+                partX++;
+                partY++;
             }
         }
 
@@ -78,7 +83,10 @@
             return [];
         } else {
             // character moving to empty space
-            if (cars.some(car => car.x === x && car.y === y)) {
+            const allCarPoses = cars
+                .map(car => car.poses)
+                .reduce((prev, curr) => prev.concat(curr), []);
+            if (allCarPoses.some(car => car.x === x && car.y === y)) {
                 return [];
             }
 
