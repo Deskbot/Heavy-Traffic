@@ -1,5 +1,5 @@
 <script>
-    import { directionOfAngle } from "./util.js";
+    import { directionOfAngle } from "./framework.js";
 
     export let colour;
     export let orientation;

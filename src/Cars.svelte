@@ -1,6 +1,5 @@
 <script>
     import Car from "./Car.svelte";
-    import { directionOfAngle } from "./util.js";
 
     export let maxX;
     export let maxY;

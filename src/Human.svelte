@@ -1,5 +1,4 @@
 <script>
-    import { directionOfAngle } from "./util.js";
     import Character from "./Character.svelte";
 
     export let orientation;

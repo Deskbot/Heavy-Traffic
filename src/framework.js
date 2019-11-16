@@ -10,6 +10,15 @@ export const Entity = {
     Character: Symbol("Character"),
 };
 
+export function directionOfAngle(dir) {
+    switch (dir) {
+        case Direction.UP: return 0;
+        case Direction.LEFT: return -90;
+        case Direction.RIGHT: return 90;
+        case Direction.DOWN: return 180;
+    }
+}
+
 export function translate(pos, dir) {
     const map = {
         [Direction.UP]: [0, -1],

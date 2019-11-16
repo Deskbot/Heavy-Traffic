@@ -1,6 +1,4 @@
 <script>
-    import { directionOfAngle } from "./util.js";
-
     export let height;
     export let width;
     export let x;
