@@ -62,11 +62,11 @@
         let [x,y] = translate(car, dir);
 
         if (x < 0 || y < 0) {
-            return [];
+            return false;
         }
 
         if (x > cols - 1 || y > rows - 1) {
-            return [];
+            return false;
         }
 
         return !cars.some(car => car.x === x && car.y === y)
