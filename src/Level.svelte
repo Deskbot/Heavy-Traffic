@@ -33,15 +33,15 @@
 
         for (let i = 0; i < across; i++) {
             for (let i = 0; i < down; i++) {
-
                 poses.push({
                     x: partX,
                     y: partY,
                 });
 
-                partX++;
                 partY++;
             }
+            partY = y;
+            partX++;
         }
 
         cars.push({
