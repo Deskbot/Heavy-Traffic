@@ -66,6 +66,14 @@
             const [x,y] = translate(mover, direction);
             mover.x = x;
             mover.y = y;
+
+            if ("poses" in mover) {
+                for (const pos of mover.poses) {
+                    const [x,y] = translate(pos, direction);
+                    pos.x = x;
+                    pos.y = y;
+                }
+            }
         }
 
         if (toMove.length > 0) {
