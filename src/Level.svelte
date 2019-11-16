@@ -77,9 +77,7 @@
     maxY={levelTopLeftY + levelHeight}
     minX={levelTopLeftX}
     minY={levelTopLeftY}
-    poses={[
-        [3,3]
-    ]}
+    poses={carPoses}
     spacing={size}
 />
 <Characters
