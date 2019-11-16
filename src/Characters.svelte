@@ -85,22 +85,31 @@
     }
 
     function swapCharacter() {
-        let iTooAmAComputerScientist = currentCharacter;
+        let imSomeWhatOfAComputerScientistMyself = currentCharacter;
         currentCharacter = otherCharacter;
-        otherCharacter = iTooAmAComputerScientist;
+        otherCharacter = imSomeWhatOfAComputerScientistMyself;
+    }
+
+    function teleport() {
+        if (currentCharacter === legion) {
+            legion.x = human.x;
+            legion.y = human.y;
+        }
     }
 
     window.addEventListener("keydown", (e) => {
+        if (e.shiftKey) {
+            swapCharacter();
+            return;
+        }
+
         const eventMap = {
             w: () => up(),
             a: () => left(),
             s: () => down(),
             d: () => right(),
-        }
 
-        if (e.shiftKey) {
-            swapCharacter();
-            return;
+            e: () => teleport(),
         }
 
         const whatToDo = eventMap[e.key]
