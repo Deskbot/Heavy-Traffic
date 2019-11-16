@@ -46,48 +46,30 @@
     $: legionIsSelected = legion === currentCharacter;
 
     function generalMove(character, direction) {
+        currentCharacter.orientation = direction;
+
+        if (!canMove(currentCharacter, direction)) {
+            return;
+        }
+
         const [x,y] = translate(character, direction);
         character.x = x;
         character.y = y;
     }
 
     function up() {
-        currentCharacter.orientation = Direction.UP;
-
-        if (!canMove(currentCharacter, Direction.UP)) {
-            return;
-        }
-
         generalMove(currentCharacter, Direction.UP);
     }
 
     function left() {
-        currentCharacter.orientation = Direction.LEFT;
-
-        if (!canMove(currentCharacter, Direction.LEFT)) {
-            return;
-        }
-
         generalMove(currentCharacter, Direction.LEFT);
     }
 
     function right() {
-        currentCharacter.orientation = Direction.RIGHT;
-
-        if (!canMove(currentCharacter, Direction.RIGHT)) {
-            return;
-        }
-
         generalMove(currentCharacter, Direction.RIGHT);
     }
 
     function down() {
-        currentCharacter.orientation = Direction.DOWN;
-
-        if (!canMove(currentCharacter, Direction.DOWN)) {
-            return;
-        }
-
         generalMove(currentCharacter, Direction.DOWN);
     }
 

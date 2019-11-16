@@ -1,7 +1,7 @@
 <script>
     import Cars from "./Cars.svelte";
     import Characters from "./Characters.svelte";
-    import { Direction, Entity, translate } from "./framework.js";
+    import { Direction, Entity, isParallel, translate } from "./framework.js";
     import { arrEquals, emptyMatrix, intsUpTo } from "./util.js";
 
     export let carPoses;
@@ -36,6 +36,10 @@
     }
 
     function canMove(char, dir) {
+        if (char.grabbing && !isParallel(char.orientation, dir)) {
+            return false;
+        }
+
         let [x,y] = translate(char, dir);
 
         if (x < 0 || y < 0) {
@@ -50,9 +54,6 @@
     }
 
     function grab(legion) {
-
-        console.log(cars);
-
         if (legion.grabbing) {
             legion.grabbing = false;
 
@@ -74,8 +75,6 @@
             car.grabbed = true;
             cars = cars;
         }
-
-        console.log(cars);
     }
 </script>
 

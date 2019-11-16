@@ -19,6 +19,21 @@ export function directionOfAngle(dir) {
     }
 }
 
+export function isParallel(dir1, dir2) {
+    if (dir1 === dir2) {
+        return true;
+    }
+
+    const oppositeDir = {
+        [Direction.UP]: Direction.DOWN,
+        [Direction.LEFT]: Direction.RIGHT,
+        [Direction.RIGHT]: Direction.LEFT,
+        [Direction.DOWN]: Direction.UP,
+    };
+
+    return oppositeDir[dir1] === dir2;
+}
+
 export function translate(pos, dir) {
     const map = {
         [Direction.UP]: [0, -1],
