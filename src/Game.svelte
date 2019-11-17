@@ -13,7 +13,7 @@
 	});
 
 	let currentLevelNum = 1;
-	const totalLevels = 7;
+	const totalLevels = 8;
 	const allcurrentLevelNums = intsUpTo(totalLevels).map(n => n + 1);
 
 	function changeLevel(newLevel) {
@@ -163,8 +163,7 @@
 			carDef={[
 				[2,1, 2, 2],
 				[1,2, 1, 3],
-				[3,3, 1, 2],
-				[4,3, 1, 2],
+				[3,3, 2, 2],
 				[0,0, 1, 1],
 				[0,1, 2, 1],
 			]}
@@ -178,6 +177,24 @@
 			startCell={[2,4]}
 		/>
 	{:else if currentLevelNum == 6}
+		<Level
+			carDef={[
+				[2,1, 2, 2],
+				[4,2, 1, 3],
+				[0,3, 2, 2],
+				[0,1, 1, 1],
+				[0,0, 1, 1],
+			]}
+			bind:bounds={bounds}
+			rows={5}
+			cols={5}
+			cellsToClear={[
+				[1,0], [1,1], [1,2], [1,3], [1,4],
+				[2,0], [2,1], [2,2], [2,3], [2,4],
+			]}
+			startCell={[2,4]}
+		/>
+	{:else if currentLevelNum == 7}
 		<Level
 			carDef={[
 				[0,0, 1, 1],
@@ -198,7 +215,7 @@
 			]}
 			startCell={[2,4]}
 		/>
-	{:else if currentLevelNum == 7}
+	{:else if currentLevelNum == 8}
 		<Level
 			carDef={[
 				[0,0, 1, 2],
