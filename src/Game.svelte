@@ -47,6 +47,13 @@
 	<button on:click={() => currentLevelNum++} disabled={currentLevelNum === totalLevels}>
 		Next
 	</button>
+	<button on:click={() => {
+		const tmp = currentLevelNum;
+		currentLevelNum = Infinity;
+		setTimeout(() => currentLevelNum = tmp, 0);
+	}}>
+		Restart
+	</button>
 </div>
 <svg height="100%" width="100%">
 	<defs>
