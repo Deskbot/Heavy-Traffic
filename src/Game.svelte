@@ -12,6 +12,10 @@
 	});
 
 	let levelNumber = 1;
+
+	function changeLevel(newLevel) {
+		levelNumber = newLevel;
+	}
 </script>
 
 <style>
@@ -20,6 +24,12 @@
 	}
 </style>
 
+<select on:change={(e) => changeLevel(parseInt(e.target.value))}>
+	<option value="1">Level 1</option>
+	<option value="2">Level 2</option>
+	<option value="3">Level 3</option>
+	<option value="4">Level 4</option>
+</select>
 <svg height="100%" width="100%">
 	<defs>
 		<filter id="shadow">
