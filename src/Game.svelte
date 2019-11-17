@@ -161,6 +161,25 @@
 	{:else if currentLevelNum == 5}
 		<Level
 			carDef={[
+				[2,1, 2, 2],
+				[1,2, 1, 3],
+				[3,3, 1, 2],
+				[4,3, 1, 2],
+				[0,0, 1, 1],
+				[0,1, 2, 1],
+			]}
+			bind:bounds={bounds}
+			rows={5}
+			cols={5}
+			cellsToClear={[
+				[1,0], [1,1], [1,2], [1,3], [1,4],
+				[2,0], [2,1], [2,2], [2,3], [2,4],
+			]}
+			startCell={[2,4]}
+		/>
+	{:else if currentLevelNum == 6}
+		<Level
+			carDef={[
 				[0,0, 1, 1],
 				[0,3, 1, 1],
 				[1,3, 1, 1],
@@ -179,7 +198,7 @@
 			]}
 			startCell={[2,4]}
 		/>
-	{:else if currentLevelNum == 6}
+	{:else if currentLevelNum == 7}
 		<Level
 			carDef={[
 				[0,0, 1, 2],
