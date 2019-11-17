@@ -101,13 +101,13 @@
 				[1,2, 2, 1],
 			]}
 			bind:bounds={bounds}
-			rows={5}
+			rows={4}
 			cols={5}
 			cellsToClear={[
 				[1,0], [1,1], [1,2], [1,3], [1,4],
 				[2,0], [2,1], [2,2], [2,3], [2,4],
 			]}
-			startCell={[3,4]}
+			startCell={[4,3]}
 		/>
 	{:else if currentLevelNum === 2}
 		<Level
