@@ -81,8 +81,7 @@
             const occupiedPoses = allCarPoses(
                 cars.filter(aCarThatExists => aCarThatExists !== grabbedCar)
             );
-            const cantGoThere = occupiedPoses.some(pos => pos.x === x && pos.y === y)
-                || otherChar.x === x && otherChar.y === y;
+            const cantGoThere = occupiedPoses.some(pos => pos.x === x && pos.y === y);
 
             if (!cantGoThere && canMoveCar(grabbedCar, dir, otherChar)) {
                 return [char, grabbedCar];
