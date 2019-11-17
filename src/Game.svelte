@@ -41,11 +41,11 @@
 		<option value="3">Level 3</option>
 		<option value="4">Level 4</option>
 	</select>
-	<button on:click={() => levelNumber++} disabled={levelNumber === totalLevels}>
-		Next
-	</button>
 	<button on:click={() => levelNumber--} disabled={levelNumber === 1}>
 		Previous
+	</button>
+	<button on:click={() => levelNumber++} disabled={levelNumber === totalLevels}>
+		Next
 	</button>
 </div>
 <svg height="100%" width="100%">
