@@ -12,6 +12,7 @@
 	});
 
 	let levelNumber = 1;
+	const totalLevels = 4;
 
 	function changeLevel(newLevel) {
 		levelNumber = newLevel;
@@ -19,7 +20,16 @@
 </script>
 
 <style>
+	button {
+		cursor: pointer;
+	}
+	button:disabled {
+		background-color: #DDD;
+		color: #888;
+		cursor: default;
+	}
 	select {
+		background-color: white;
 		outline: none;
 	}
 </style>
@@ -31,10 +41,10 @@
 		<option value="3">Level 3</option>
 		<option value="4">Level 4</option>
 	</select>
-	<button on:click={() => levelNumber++}>
+	<button on:click={() => levelNumber++} disabled={levelNumber === totalLevels}>
 		Next
 	</button>
-	<button on:click={() => levelNumber--}>
+	<button on:click={() => levelNumber--} disabled={levelNumber === 1}>
 		Previous
 	</button>
 </div>

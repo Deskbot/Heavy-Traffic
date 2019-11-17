@@ -33,6 +33,7 @@ label {
 }
 
 input, button, select, textarea {
+	background-color: #f4f4f4;
 	font-family: inherit;
 	font-size: inherit;
 	padding: 0.4em;
