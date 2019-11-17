@@ -57,8 +57,10 @@
     $: win = (() => {
         for (const cell of cellsToClear) {
             for (const car of cars) {
-                if (cell[0] === car.x && cell[1] === car.y) {
-                    return false;
+                for (const pos of car.poses) {
+                    if (cell[0] === pos.x && cell[1] === pos.y) {
+                        return false;
+                    }
                 }
             }
         }
