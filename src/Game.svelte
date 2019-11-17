@@ -26,7 +26,7 @@
 			"wasd to move",
 			"shfit to change character",
 			"e to teleport red character to blue",
-			"space to grab and ungrab",
+			"space (as the red character) to grab and ungrab",
 			"While grabbing, you can only move forwards or backwards in the direction you are facing."
 		].join("\n");
 		alert(info);
