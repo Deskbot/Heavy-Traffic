@@ -69,7 +69,7 @@
 
 <div id="controls" on:click={loseFocus}>
 	<div id="level-controls">
-		<select on:change={e => changeLevel(e.target.value)}>
+		<select bind:value={currentLevelNum}>
 			{#each allcurrentLevelNums as level}
 				<option selected={currentLevelNum == level} value={level}>Level {level}</option>
 			{/each}
