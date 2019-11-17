@@ -140,7 +140,7 @@
 			]}
 			startCell={[3,3]}
 		/>
-	{:else if currentLevelNum === 3}
+	{:else if currentLevelNum === 4}
 		<Level
 			carDef={[
 				[0,0, 1, 2],
