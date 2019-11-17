@@ -71,13 +71,13 @@
 	<div id="level-controls">
 		<select on:change={e => changeLevel(e.target.value)}>
 			{#each allcurrentLevelNums as level}
-				<option selected={currentLevelNum === level} value={level}>Level {level}</option>
+				<option selected={currentLevelNum == level} value={level}>Level {level}</option>
 			{/each}
 		</select>
-		<button on:click={() => currentLevelNum--} disabled={currentLevelNum === 1}>
+		<button on:click={() => currentLevelNum--} disabled={currentLevelNum == 1}>
 			Previous
 		</button>
-		<button on:click={() => currentLevelNum++} disabled={currentLevelNum === totalLevels}>
+		<button on:click={() => currentLevelNum++} disabled={currentLevelNum == totalLevels}>
 			Next
 		</button>
 		<button on:click={restart} on:click={loseFocus}>
@@ -95,7 +95,7 @@
 		</filter>
 	</defs>
 
-	{#if currentLevelNum === 1}
+	{#if currentLevelNum == 1}
 		<Level
 			carDef={[
 				[1,2, 2, 1],
@@ -109,7 +109,7 @@
 			]}
 			startCell={[4,3]}
 		/>
-	{:else if currentLevelNum === 2}
+	{:else if currentLevelNum == 2}
 		<Level
 			carDef={[
 				[2,2, 2, 1],
@@ -124,7 +124,7 @@
 			]}
 			startCell={[3,3]}
 		/>
-	{:else if currentLevelNum === 3}
+	{:else if currentLevelNum == 3}
 		<Level
 			carDef={[
 				[1,2, 2, 1],
@@ -140,7 +140,7 @@
 			]}
 			startCell={[3,3]}
 		/>
-	{:else if currentLevelNum === 4}
+	{:else if currentLevelNum == 4}
 		<Level
 			carDef={[
 				[0,0, 1, 2],
@@ -158,7 +158,7 @@
 			]}
 			startCell={[2,4]}
 		/>
-	{:else if currentLevelNum === 5}
+	{:else if currentLevelNum == 5}
 		<Level
 			carDef={[
 				[0,0, 1, 2],
