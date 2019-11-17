@@ -7,15 +7,15 @@
     export let carDef;
     export let rows;
     export let cols;
-    export let offset;
+    export let bounds;
     export let cellsToClear;
     export let startCell;
 
     const size = 150;
     const levelWidth = size * cols;
     const levelHeight = size * rows;
-    $: levelTopLeftX = offset.x - levelHeight / 2;
-    $: levelTopLeftY = offset.y - levelWidth / 1.8;
+    $: levelTopLeftX = bounds.x / 2 - levelWidth / 2;
+    $: levelTopLeftY = bounds.y / 2.2 - levelHeight / 2;
 
     const rowsArr = intsUpTo(rows);
     const colsArr = intsUpTo(cols);

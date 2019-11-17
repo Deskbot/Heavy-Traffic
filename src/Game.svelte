@@ -2,14 +2,14 @@
 	import Level from "./Level.svelte";
 	import { intsUpTo } from "./util.js";
 
-	let middle = {
-		x: Math.floor(window.innerWidth / 2),
-		y: Math.floor(window.innerHeight / 2),
+	let bounds = {
+		x: Math.floor(window.innerWidth),
+		y: Math.floor(window.innerHeight),
 	};
 
 	window.addEventListener("resize", () => {
-		middle.x = window.innerWidth / 2;
-		middle.y = window.innerHeight / 2;
+		bounds.x = window.innerWidth;
+		bounds.y = window.innerHeight;
 	});
 
 	let currentLevelNum = 1;
@@ -100,7 +100,7 @@
 			carDef={[
 				[1,2, 2, 1],
 			]}
-			bind:offset={middle}
+			bind:bounds={bounds}
 			rows={5}
 			cols={5}
 			cellsToClear={[
@@ -116,14 +116,14 @@
 				[3,0, 1, 3],
 				[0,3, 2, 1]
 			]}
-			bind:offset={middle}
-			rows={5}
+			bind:bounds={bounds}
+			rows={4}
 			cols={5}
 			cellsToClear={[
 				[1,0], [1,1], [1,2], [1,3], [1,4],
 				[2,0], [2,1], [2,2], [2,3], [2,4],
 			]}
-			startCell={[3,4]}
+			startCell={[3,3]}
 		/>
 	{:else if currentLevelNum === 3}
 		<Level
@@ -137,7 +137,7 @@
 				[1,2, 1, 3],
 				[3,3, 2, 1],
 			]}
-			bind:offset={middle}
+			bind:bounds={bounds}
 			rows={5}
 			cols={5}
 			cellsToClear={[
