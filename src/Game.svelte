@@ -1,5 +1,6 @@
 <script>
 	import Level from "./Level.svelte";
+	import { intsUpTo } from "./util.js";
 
 	let middle = {
 		x: Math.floor(window.innerWidth / 2),
@@ -11,11 +12,12 @@
 		middle.y = window.innerHeight / 2;
 	});
 
-	let levelNumber = 1;
+	let currentLevelNum = 1;
 	const totalLevels = 4;
+	const allcurrentLevelNums = intsUpTo(totalLevels).map(n => n + 1);
 
 	function changeLevel(newLevel) {
-		levelNumber = newLevel;
+		currentLevelNum = newLevel;
 	}
 </script>
 
@@ -36,15 +38,14 @@
 
 <div id="controls">
 	<select on:change={(e) => changeLevel(parseInt(e.target.value))}>
-		<option value="1">Level 1</option>
-		<option value="2">Level 2</option>
-		<option value="3">Level 3</option>
-		<option value="4">Level 4</option>
+		{#each allcurrentLevelNums as level}
+			<option selected={currentLevelNum === level} value={level}>Level {level}</option>
+		{/each}
 	</select>
-	<button on:click={() => levelNumber--} disabled={levelNumber === 1}>
+	<button on:click={() => currentLevelNum--} disabled={currentLevelNum === 1}>
 		Previous
 	</button>
-	<button on:click={() => levelNumber++} disabled={levelNumber === totalLevels}>
+	<button on:click={() => currentLevelNum++} disabled={currentLevelNum === totalLevels}>
 		Next
 	</button>
 </div>
@@ -55,7 +56,7 @@
 		</filter>
 	</defs>
 
-	{#if levelNumber === 1}
+	{#if currentLevelNum === 1}
 		<Level
 			carDef={[
 				[1,2, 2, 1],
@@ -69,7 +70,7 @@
 			]}
 			startCell={[3,4]}
 		/>
-	{:else if levelNumber === 2}
+	{:else if currentLevelNum === 2}
 		<Level
 			carDef={[
 				[0,0, 1, 2],
