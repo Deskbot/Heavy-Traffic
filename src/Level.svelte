@@ -77,7 +77,14 @@
         }
 
         if (char.grabbing) {
-            if (canMoveCar(grabbedCar, dir, otherChar)) {
+            // moving to a space not occupied by any vehicle except maybe the one grabbed
+            const occupiedPoses = allCarPoses(
+                cars.filter(aCarThatExists => aCarThatExists !== grabbedCar)
+            );
+            const cantGoThere = occupiedPoses.some(pos => pos.x === x && pos.y === y)
+                || otherChar.x === x && otherChar.y === y;
+
+            if (!cantGoThere && canMoveCar(grabbedCar, dir, otherChar)) {
                 return [char, grabbedCar];
             }
             return [];
