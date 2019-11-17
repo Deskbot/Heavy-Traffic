@@ -15,7 +15,7 @@
     const levelWidth = size * cols;
     const levelHeight = size * rows;
     $: levelTopLeftX = offset.x - levelHeight / 2;
-    $: levelTopLeftY = offset.y - levelWidth / 2;
+    $: levelTopLeftY = offset.y - levelWidth / 1.8;
 
     const rowsArr = intsUpTo(rows);
     const colsArr = intsUpTo(cols);
