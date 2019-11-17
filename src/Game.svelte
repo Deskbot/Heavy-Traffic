@@ -34,8 +34,15 @@
 </script>
 
 <style>
-	#controls-button {
-		float: right;
+	#controls {
+		display: flex;
+		justify-content: space-between;
+	}
+	#level-controls {
+		justify-content: flex-start;
+	}
+	#howto-button {
+		align-self: flex-end;
 	}
 	button {
 		cursor: pointer;
@@ -51,25 +58,27 @@
 </style>
 
 <div id="controls">
-	<select on:change={e => changeLevel(e.target.value)}>
-		{#each allcurrentLevelNums as level}
-			<option selected={currentLevelNum === level} value={level}>Level {level}</option>
-		{/each}
-	</select>
-	<button on:click={() => currentLevelNum--} disabled={currentLevelNum === 1}>
-		Previous
-	</button>
-	<button on:click={() => currentLevelNum++} disabled={currentLevelNum === totalLevels}>
-		Next
-	</button>
-	<button on:click={() => {
-		const tmp = currentLevelNum;
-		currentLevelNum = Infinity;
-		setTimeout(() => currentLevelNum = tmp, 0);
-	}}>
-		Restart
-	</button>
-	<button id="controls-button" on:click={explainControls}>
+	<div id="level-controls">
+		<select on:change={e => changeLevel(e.target.value)}>
+			{#each allcurrentLevelNums as level}
+				<option selected={currentLevelNum === level} value={level}>Level {level}</option>
+			{/each}
+		</select>
+		<button on:click={() => currentLevelNum--} disabled={currentLevelNum === 1}>
+			Previous
+		</button>
+		<button on:click={() => currentLevelNum++} disabled={currentLevelNum === totalLevels}>
+			Next
+		</button>
+		<button on:click={() => {
+			const tmp = currentLevelNum;
+			currentLevelNum = Infinity;
+			setTimeout(() => currentLevelNum = tmp, 0);
+		}}>
+			Restart
+		</button>
+	</div>
+	<button id="howto-button" on:click={explainControls}>
 		How To
 	</button>
 </div>
