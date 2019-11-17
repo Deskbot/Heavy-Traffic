@@ -31,7 +31,6 @@
 		cursor: default;
 	}
 	select {
-		background-color: white;
 		outline: none;
 	}
 </style>
