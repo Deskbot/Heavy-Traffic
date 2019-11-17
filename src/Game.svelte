@@ -36,7 +36,7 @@
 </style>
 
 <div id="controls">
-	<select on:change={(e) => changeLevel(parseInt(e.target.value))}>
+	<select on:change={e => changeLevel(e.target.value)}>
 		{#each allcurrentLevelNums as level}
 			<option selected={currentLevelNum === level} value={level}>Level {level}</option>
 		{/each}
