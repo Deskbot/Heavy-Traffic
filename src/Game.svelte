@@ -19,9 +19,24 @@
 	function changeLevel(newLevel) {
 		currentLevelNum = newLevel;
 	}
+
+	function explainControls() {
+		const info = [
+			"The goal is to clear the golden region.",
+			"wasd to move",
+			"shfit to change character",
+			"e to teleport red character to blue",
+			"space to grab and ungrab",
+			"While grabbing, you can only move forwards or backwards in the direction you are facing."
+		].join("\n");
+		alert(info);
+	}
 </script>
 
 <style>
+	#controls-button {
+		float: right;
+	}
 	button {
 		cursor: pointer;
 	}
@@ -53,6 +68,9 @@
 		setTimeout(() => currentLevelNum = tmp, 0);
 	}}>
 		Restart
+	</button>
+	<button id="controls-button" on:click={explainControls}>
+		How To
 	</button>
 </div>
 <svg height="100%" width="100%">
