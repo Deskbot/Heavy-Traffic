@@ -31,6 +31,16 @@
 		].join("\n");
 		alert(info);
 	}
+
+	function loseFocus(e) {
+		e.target.blur();
+	}
+
+	function restart() {
+		const tmp = currentLevelNum;
+		currentLevelNum = Infinity;
+		setTimeout(() => currentLevelNum = tmp, 0);
+	}
 </script>
 
 <style>
@@ -57,7 +67,7 @@
 	}
 </style>
 
-<div id="controls">
+<div id="controls" on:click={loseFocus}>
 	<div id="level-controls">
 		<select on:change={e => changeLevel(e.target.value)}>
 			{#each allcurrentLevelNums as level}
@@ -70,11 +80,7 @@
 		<button on:click={() => currentLevelNum++} disabled={currentLevelNum === totalLevels}>
 			Next
 		</button>
-		<button on:click={() => {
-			const tmp = currentLevelNum;
-			currentLevelNum = Infinity;
-			setTimeout(() => currentLevelNum = tmp, 0);
-		}}>
+		<button on:click={restart} on:click={loseFocus}>
 			Restart
 		</button>
 	</div>
