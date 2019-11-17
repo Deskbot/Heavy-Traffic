@@ -19,8 +19,8 @@
 </script>
 
 <style>
-	svg {
-		background-color: #AABBEE;
+	select {
+		outline: none;
 	}
 </style>
 
