@@ -142,12 +142,12 @@
 <Legion
     bind:orientation={legion.orientation}
     bind:selected={legionIsSelected}
-    x={legion.x * spacing + minPos.x}
-    y={legion.y * spacing + minPos.y}
+    x={legion.x * spacing + minX}
+    y={legion.y * spacing + minY}
 />
 <Human
     bind:orientation={human.orientation}
     bind:selected={humanIsSelected}
-    x={human.x * spacing + minPos.x}
-    y={human.y * spacing + minPos.y}
+    x={human.x * spacing + minX}
+    y={human.y * spacing + minY}
 />
