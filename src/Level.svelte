@@ -215,6 +215,6 @@
 />
 {#if win}
     <text x={levelTopLeftX + levelWidth / 2} y={levelTopLeftY + levelHeight / 2}>
-        A Winner is You!
+        You Escaped!
     </text>
 {/if}
