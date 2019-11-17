@@ -24,12 +24,20 @@
 	}
 </style>
 
-<select on:change={(e) => changeLevel(parseInt(e.target.value))}>
-	<option value="1">Level 1</option>
-	<option value="2">Level 2</option>
-	<option value="3">Level 3</option>
-	<option value="4">Level 4</option>
-</select>
+<div id="controls">
+	<select on:change={(e) => changeLevel(parseInt(e.target.value))}>
+		<option value="1">Level 1</option>
+		<option value="2">Level 2</option>
+		<option value="3">Level 3</option>
+		<option value="4">Level 4</option>
+	</select>
+	<button on:click={() => levelNumber++}>
+		Next
+	</button>
+	<button on:click={() => levelNumber--}>
+		Previous
+	</button>
+</div>
 <svg height="100%" width="100%">
 	<defs>
 		<filter id="shadow">
