@@ -23,10 +23,10 @@
 	function explainControls() {
 		const info = [
 			"The goal is to clear the golden region.",
-			"wasd to move",
-			"shfit to change character",
-			"e to teleport red character to blue",
-			"space (as the red character) to grab and ungrab",
+			"WASD to move",
+			"shift to change character",
+			"E to teleport red character to blue",
+			"space (only as the red character) to grab and ungrab",
 			"While grabbing, you can only move forwards or backwards in the direction you are facing."
 		].join("\n");
 		alert(info);
