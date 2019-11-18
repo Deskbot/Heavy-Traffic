@@ -178,6 +178,11 @@
         stroke: black;
         stroke-width: 10px;
     }
+
+    text {
+        font-size: 100px;
+        text-shadow: white 2px 2px;
+    }
 </style>
 
 <rect id="outer" height={size * rows} width={size * cols} x={levelTopLeftX} y={levelTopLeftY}/>
@@ -214,7 +219,7 @@
     startY={startCell[1]}
 />
 {#if win}
-    <text x={levelTopLeftX + levelWidth / 2} y={levelTopLeftY + levelHeight / 2}>
-        You Escaped!
+    <text x={levelTopLeftX + levelWidth * 0.25} y={levelTopLeftY + levelHeight * 0.25}>
+        Success!
     </text>
 {/if}
