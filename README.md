@@ -7,7 +7,7 @@ The game was made with Svelte and it's the first program I've ever made using a 
 ## Run
 
 ```bash
-npm run dev
+npm run start
 ```
 
 Then visit [localhost:5000](http://localhost:5000).
