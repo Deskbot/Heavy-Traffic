@@ -67,24 +67,24 @@
 	}
 </style>
 
-<div id="controls" on:click={loseFocus}>
+<div id="controls">
 	<div id="level-controls">
 		<select bind:value={currentLevelNum}>
 			{#each allcurrentLevelNums as level}
 				<option selected={currentLevelNum == level} value={level}>Level {level}</option>
 			{/each}
 		</select>
-		<button on:click={() => currentLevelNum--} disabled={currentLevelNum == 1}>
+		<button on:click={() => currentLevelNum--} disabled={currentLevelNum == 1} on:click={loseFocus}>
 			Previous
 		</button>
-		<button on:click={() => currentLevelNum++} disabled={currentLevelNum == totalLevels}>
+		<button on:click={() => currentLevelNum++} disabled={currentLevelNum == totalLevels} on:click={loseFocus}>
 			Next
 		</button>
 		<button on:click={restart} on:click={loseFocus}>
 			Restart
 		</button>
 	</div>
-	<button id="howto-button" on:click={explainControls}>
+	<button id="howto-button" on:click={explainControls} on:click={loseFocus}>
 		How To
 	</button>
 </div>
